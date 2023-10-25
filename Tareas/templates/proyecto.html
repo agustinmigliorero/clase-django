@@ -10,11 +10,17 @@
   </head>
   <body>
     <h1>Proyecto: {{proyecto.nombre}}</h1>
+    <h2>Fecha de creacion: {{proyecto.fechaCreacion}}</h2>
+    <h2>Fecha de edicion: {{proyecto.fechaEdicion}}</h2>
     <ul>
       {% for item in items %}
-      <li>{{item.nombre}} <br>
-        Desc:{{item.descripcion}}
+      <li>
+        {{item.nombre}} <br />
+        Desc: {{item.descripcion}}
       </li>
       {% endfor %}
+
+      <a href="http://localhost:8000/tareas"><button>Volver</button></a>
+    </ul>
   </body>
 </html>

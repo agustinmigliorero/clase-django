@@ -7,10 +7,9 @@ from .models import Proyecto, Item
 
 
 def Tareas(request):
-    proyectos = Proyecto.objects.order_by("nombre")
-    items = Item.objects.order_by("nombre")
+    proyectos = Proyecto.objects.order_by("id")
     plantilla = loader.get_template("index.html")
-    context = {"proyectos": proyectos, "items": items}
+    context = {"proyectos": proyectos}
     return HttpResponse(plantilla.render(context, request))
 
 

@@ -10,7 +10,11 @@
     <h1>Proyectos:</h1>
     <ul>
       {% for proyecto in proyectos %}
-      <li>{{proyecto}}</li>
+      <li>
+        <a href="http://localhost:8000/tareas/{{proyecto.id}}"
+          >{{proyecto.nombre}}</a
+        >
+      </li>
       {% endfor %}
     </ul>
   </body>
