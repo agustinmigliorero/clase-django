@@ -20,5 +20,5 @@ from Tareas import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("tareas/", include("Tareas.urls")),
+    path("proyectos/", include("Tareas.urls")),
 ]

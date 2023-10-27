@@ -5,22 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!-- <script src="main.js"></script> -->
   </head>
   <body>
-    <h1>Proyecto: {{proyecto.nombre}}</h1>
+    <h1>
+      Proyecto: {{proyecto.nombre}}
+      <span style="display: none" id="span-id"> {{ proyecto.id }} </span>
+      <span style="display: none" id="span-csrf"> {{ csrf_token }} </span>
+      <a href="/proyectos">
+        <button id="btn-borrar">Borrar</button>
+      </a>
+    </h1>
     <h2>Fecha de creacion: {{proyecto.fechaCreacion}}</h2>
     <h2>Fecha de edicion: {{proyecto.fechaEdicion}}</h2>
     <ul>
       {% for item in items %}
       <li>
         {{item.nombre}} <br />
-        Desc: {{item.descripcion}}
+        Desc: {{item.descripcion}} <br />
+        Fecha Creacion: {{item.fechaCreacion}}
       </li>
       {% endfor %}
 
-      <a href="http://localhost:8000/tareas"><button>Volver</button></a>
+      <a href="http://localhost:8000/proyectos"><button>Volver</button></a>
     </ul>
+
+    <h1>Añadir nuevo Item</h1>
+    <form action="/proyectos/crear-item/{{proyecto.id}}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="nombre" placeholder="Nombre" />
+      <input type="text" name="descripcion" placeholder="Descripción" />
+      <input type="submit" value="Enviar" />
+    </form>
+    <script src="{% static 'js/proyecto.js' %}"></script>
   </body>
 </html>

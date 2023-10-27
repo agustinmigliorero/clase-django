@@ -6,7 +6,6 @@ class Proyecto(models.Model):
     nombre = models.CharField(max_length=200)
     fechaCreacion = models.DateTimeField(auto_now_add=True)
     fechaEdicion = models.DateTimeField(auto_now=True)
-    # otraCosa = models.CharField(max_length=200, default="hola")
 
     def __str__(self):
         return self.nombre
