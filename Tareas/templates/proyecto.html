@@ -12,8 +12,8 @@
   <body>
     <h1>
       Proyecto: {{proyecto.nombre}}
-      <span style="display: none" id="span-id"> {{ proyecto.id }} </span>
-      <span style="display: none" id="span-csrf"> {{ csrf_token }} </span>
+      <span style="display: none" id="span-id">{{ proyecto.id }}</span>
+      <span style="display: none" id="span-csrf">{{ csrf_token }}</span>
       <a href="/proyectos">
         <button id="btn-borrar">Borrar</button>
       </a>
@@ -35,8 +35,13 @@
     <h1>Añadir nuevo Item</h1>
     <form action="/proyectos/crear-item/{{proyecto.id}}" method="POST">
       {% csrf_token %}
-      <input type="text" name="nombre" placeholder="Nombre" />
-      <input type="text" name="descripcion" placeholder="Descripción" />
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input
+        type="text"
+        name="descripcion"
+        placeholder="Descripción"
+        required
+      />
       <input type="submit" value="Enviar" />
     </form>
     <script src="{% static 'js/proyecto.js' %}"></script>

@@ -36,7 +36,7 @@ def BorrarProyecto(request, proyecto_id):
         proyecto = Proyecto.objects.get(id=proyecto_id)
         proyecto.delete()
         return JsonResponse({"success": True})
-    return HttpResponse("ERROR, ESTO SOLO ACEPTA METODOS DELETE")
+    return HttpResponse(f"LA ID DEL PROYECTO ES: {proyecto_id}")
 
 
 def CrearItem(request, proyecto_id):
